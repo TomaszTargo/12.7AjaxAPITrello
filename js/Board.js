@@ -5,6 +5,7 @@ var board = {
 	  initSortable();
 	},
 	element: $('#board .column-container')
+}
 
 $('.create-column')
     .click(function() {
@@ -13,14 +14,14 @@ $('.create-column')
         url: baseUrl + '/column',
         method: 'POST',
         data: {
-              name: columnName
+          name: columnName
         },
         success: function(response){
           var column = new Column(response.id, columnName);
           board.createColumn(column);
             }
         });
-});
+    });
 	
 function initSortable() {
     $('.card-list').sortable({

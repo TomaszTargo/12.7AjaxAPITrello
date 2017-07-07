@@ -2,7 +2,7 @@
 function Card(id, name) {
 	this.id = id;
 	this.name = name || 'No name given';
-}
+
 
 	function createCard() {
 		var card = $('<li class="card"></li>');
@@ -19,15 +19,16 @@ function Card(id, name) {
 		return card;
 	}
 }
+
 Card.prototype = {
 	removeCard: function() {
 	    var self = this;
 	    $.ajax({
-	      url: baseUrl + '/card/' + self.id,
-	      method: 'DELETE',
-	      success: function(){
-	        self.element.remove();
-	      }
+	      	url: baseUrl + '/card/' + self.id,
+	      	method: 'DELETE',
+	      	success: function(){
+	        	self.element.remove();
+	      	}
 	    });
 	}
 }
